@@ -1,0 +1,16 @@
+body{
+    margin: 0; 
+    padding: 0;
+    background-color: #ededed;
+}
+.outercontainer{
+    margin: 5% auto;
+
+}
+.signupcontainer{
+    border: 1px solid gray;
+    margin: auto 20%;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+}
