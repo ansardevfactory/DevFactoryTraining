@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const port = 8000;
-
+const cors = require('cors');
+app.use(cors());
 app.use(express.json());
 
 app.post("/addition", (req, res) => {
@@ -15,6 +16,7 @@ app.post("/addition", (req, res) => {
     "X-Requested-With,content-type"
   );
   res.setHeader("Access-Control-Allow-Credentials", true);
+  // var a=req.body.numone;
   res.send("Hello world");
 });
 
