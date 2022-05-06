@@ -14,9 +14,9 @@ const params = {
 const insertparams={
     TableName:"test",
     Item:{
-        pkid:'6',
-        skid:'16',
-        name:"sampletwonew",
+        pkid:'7',
+        skid:'17',
+        name:"seventeensampletwonew",
         address:"newaddress",
         newcolumn:"value"
     }
