@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import './style.css'
 
 function LoginPage() {
     const [username, setUsername]=useState('');
     const [password , setPassword]=useState(''); 
+    const navigate=useNavigate();
 
     function handleClick(e){
         e.preventDefault();
@@ -23,6 +25,10 @@ function LoginPage() {
         ).catch();
     }
  
+    function linkClick(e){
+        e.preventDefault();
+        navigate('/signup')
+    }
 
   return (
     <div>
@@ -36,7 +42,7 @@ function LoginPage() {
           <input value={password} onChange={(e)=>{setPassword(e.target.value)}} type="password" />
       </div>
       <button onClick={(e)=>handleClick(e)}>Login</button>
-      <p className="link">New User?</p>  
+      <p onClick={(e)=>{linkClick(e)}} className="link">New User?</p >  
     </div>
   );
 }
