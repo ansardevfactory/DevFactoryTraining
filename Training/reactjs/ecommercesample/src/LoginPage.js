@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./style/style.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errormessage, setErrorMessage] = useState("");
+  const navigate=useNavigate();
 
   function handleClick() {
     var url = "http://localhost:8000/uservalidation";
@@ -17,6 +19,7 @@ function LoginPage() {
         console.log(res.data);
         if (res.data.length > 0) {
           setErrorMessage("Success");
+          navigate('/dashboard')
         } else {
           setErrorMessage("Error in Username Or Password");
         }
@@ -25,6 +28,11 @@ function LoginPage() {
         console.log(err);
       });
   }
+ 
+  const newClick=()=>{
+    navigate('/signup')
+  }
+
   return (
     <div>
       <h1>Login</h1>
@@ -49,6 +57,7 @@ function LoginPage() {
         />
       </div>
       <p className="errormessage">{errormessage}</p>
+      <p onClick={newClick} className="newuser">NewUser?</p>
       <button onClick={handleClick} className="loginbutton">
         Login
       </button>
