@@ -1,0 +1,9 @@
+.loginbutton{
+    background-color: blue;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+.errormessage{
+    color: red;
+}

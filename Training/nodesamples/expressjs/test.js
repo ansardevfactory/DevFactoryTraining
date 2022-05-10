@@ -1,5 +1,12 @@
-var js = ["manu", "aby", "dony"];
+addition();
+function addition() {
+  let a = 0;
+  while (a < 10) {
+    let a = 9;
+    console.log(a);
+    a++;
+  }
 
-for (let i = 0; i < js.length; i++) {
-  console.log("Position of " + js[i] + "=" + (i + 1));
+  a = 15;
+  console.log(a);
 }
