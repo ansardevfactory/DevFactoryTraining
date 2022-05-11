@@ -1,26 +1,50 @@
 import { useEffect, useState } from "react";
 import "./style/style.css";
+import axios from "axios";
+import { ReactSession } from "react-client-session";
+import { useNavigate } from "react-router-dom";
 
-function Dashboard() {
-  var a = [
-    { Id: "1", txtprdName: "sample", Rate: "100", Tax: "18" },
-    { Id: "2", txtprdName: "sample2", Rate: "100", Tax: "18" },
-    { Id: "3", txtprdName: "sample3", Rate: "100", Tax: "18" },
-  ];
-  
-  
+
+function Dashboard() {  
+  const [sample, setSample]=useState('');
+  const [usr, setUsrName]=useState('');
+  const navigate=useNavigate();
+
 //   <tr>  <td>item.Id</td>  <td>item.txtprdName</td>  <td>item.Rate</td>  <td>item.Tax</td></tr>
-  const [productlist, setProductList] = useState([
+  const [productlist, setProductList] = useState( [
     { Id: "1", txtprdName: "sample", Rate: "100", Tax: "18" },
     { Id: "2", txtprdName: "sample2", Rate: "100", Tax: "18" },
     { Id: "3", txtprdName: "sample3", Rate: "100", Tax: "18" },
   ]);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if(ReactSession.get("username")==undefined){
+      navigate('/')
+    }
+    setUsrName(ReactSession.get("username"))
+
+    setSample('')
+
+    var url = "http://localhost:8000/getproducts";
+    var request = { };
+    var header = {};
+    axios
+      .post(url, request, header)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.length > 0) { 
+          setProductList(res.data)
+        } else { 
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="maindiv">
       <div className="headerpart"> 
-        <label>User</label>
+        <label>{usr}</label>
       </div>
       <div className="bodypart">
         <div className="menu">
@@ -33,11 +57,7 @@ function Dashboard() {
         </div>
         <div className="content">
           <h1>Products</h1>
-          {
-              productlist.map((item,index)=>{
-                  return <p>{index}{item.txtprdName}</p>
-              })
-          }
+           
           <table>
             <thead>
               <th>Id</th>
