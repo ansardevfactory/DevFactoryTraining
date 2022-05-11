@@ -19,16 +19,16 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 //   }
 // });
 
-const insertparams = {
-  TableName: "test",
-  Item: {
-    pkid: "7",
-    skid: "17",
-    name: "seventeensampletwonew",
-    address: "newaddress",
-    newcolumn: "value",
-  },
-};
+// const insertparams = {
+//   TableName: "test",
+//   Item: {
+//     pkid: "7",
+//     skid: "17",
+//     name: "seventeensampletwonew",
+//     address: "newaddress",
+//     newcolumn: "value",
+//   },
+// };
 // docClient.put(insertparams,function (err, data) {
 //     if (err) {
 //         console.log(err)
@@ -62,28 +62,37 @@ const insertparams = {
 //   },
 // };
 
-const insertUser = {
-  TableName: "usrs",
-  Item: {
-    PK: "9567878207",
-    SK: "R#0001",
-    unm: "Ajith Nambiaruveetil",
-    eml: "ajith.n@dhisigma.com",
-    sts: "ACTIVE",
-    id: "0001",
-    rnm: "Sales Executive",
-  },
-};
-docClient.put(insertUser, function (err, data) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(data);
-  }
-});
+// const insertUser = {
+//   TableName: "usrs",
+//   Item: {
+//     PK: "9567878207",
+//     SK: "R#0001",
+//     unm: "Ajith Nambiaruveetil",
+//     eml: "ajith.n@dhisigma.com",
+//     sts: "ACTIVE",
+//     id: "0001",
+//     rnm: "Sales Executive",
+//   },
+// };
+// docClient.put(insertUser, function (err, data) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(data);
+//   }
+// });
 
 const params = {
   TableName: "usrs",
+  FilterExpression: "#u_name = :value and #u_n=:nex",
+  ExpressionAttributeNames: {
+    "#u_name": "sts",
+    "#u_n": "rnm",
+  },
+  ExpressionAttributeValues: {
+    ":value": "ACTIVE",
+    ":nex": "Sales Executive"
+  },
 };
 docClient.scan(params, function (err, data) {
   if (err) {
