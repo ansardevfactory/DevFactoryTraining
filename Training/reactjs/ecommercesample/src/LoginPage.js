@@ -29,7 +29,7 @@ function LoginPage() {
           ReactSession.set("username", username);
           ReactSession.set("password", password);
          // ReactSession.set("userid", result[0].id);
-          //navigate("/dashboard");
+          navigate("/dashboard");
         }
       })
       .catch((err) => {

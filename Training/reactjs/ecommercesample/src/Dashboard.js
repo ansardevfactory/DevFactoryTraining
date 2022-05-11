@@ -23,12 +23,13 @@ function Dashboard() {
     setUsrName(ReactSession.get("username"))
 
     setSample('')
-
+    var token=ReactSession.get("token")
     var url = "http://localhost:8000/getproducts";
     var request = { };
-    var header = {};
+    var header ={ Authorization: `Bearer ${token}`};      
+    
     axios
-      .post(url, request, header)
+      .post(url, request, {headers:header})
       .then((res) => {
         console.log(res.data);
         if (res.data.length > 0) { 
