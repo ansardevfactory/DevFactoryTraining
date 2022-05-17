@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import HorizontalList from "./HorizontalList";
 import SingleUser from "./SingleUser";
-import './style.css'
+import "./style.css";
 function DropDownSample() {
   const [list, setList] = useState({
     main: [
@@ -43,12 +43,12 @@ function DropDownSample() {
     setList({ main: temp.main, maincount: temp.main.length });
   };
   const handleChildExpand = (e, item, index) => {
-    e.preventDefault(); 
+    e.preventDefault();
   };
   return (
-    <div> 
+    <div>
       <table>
-        <tr> 
+        <tr>
           <th className="withborder constant"></th>
           <th className="withborder constant">id</th>
           <th className="withborder">Name</th>
@@ -58,7 +58,7 @@ function DropDownSample() {
         {list.main.map((item, index) => {
           return (
             <>
-              <tr key={item.id}> 
+              <tr key={item.id}>
                 <td className="right constant">
                   {item.isExpaned ? (
                     <FaAngleDown
@@ -77,8 +77,8 @@ function DropDownSample() {
               </tr>
               {item.list.data.map((childItem, childIndex) => {
                 return (
-                  <tr className={item.isExpaned?"none":"display"}>
-                    <td className="constant"></td> 
+                  <tr className={item.isExpaned ? "none" : "display"}>
+                    <td className="constant"></td>
                     <td className="right constant">
                       {childItem.isExpaned ? (
                         <FaAngleDown
