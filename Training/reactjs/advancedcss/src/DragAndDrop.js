@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./style.css";
 
 function DragAndDrop() {
-  const [firstArray, setFirstArray] = useState(["One", "Two"]);
-  const [secondArray, setSecondArray] = useState(["Three", "Four", "Five"]);
-  const [thirdArray, setThirdArray] = useState(["Six"]);
+  const [firstArray, setFirstArray] = useState({data:["One", "Two"], count: 2});
+  const [secondArray, setSecondArray] = useState({data:["Three", "Four", "Five"], count: 3});
+  const [thirdArray, setThirdArray] = useState({data:["Six"], count: 1});
   const [dragElement, setDragElement] = useState({});
   const allowDrop = (e) => {
     e.preventDefault();
@@ -15,21 +15,25 @@ function DragAndDrop() {
     var startedDiv = dragElement.startedDiv;
     if (target != startedDiv) {
       if (startedDiv == "firstDiv") {
-          
+          delete firstArray.data[dragElement.index]
+      }else if(startedDiv=="secondDiv"){
+        delete secondArray.data[dragElement.index]
+      }else if(startedDiv=="thirdDiv"){
+        delete thirdArray.data[dragElement.index]
       }
       if (target == "firstDiv") {
-        var temp = firstArray;
+        var temp = firstArray.data;
         temp.push(dragElement.item);
-        setFirstArray(temp);
+        setFirstArray({data:temp, count: temp.length});
       } else if (target == "secondDiv") {
-        var temp = secondArray;
+        var temp = secondArray.data;
         temp.push(dragElement.item);
-        setSecondArray(temp);
+        setSecondArray({data:temp, count: temp.length});
       }
       if (target == "thirdDiv") {
-        var temp = thirdArray;
+        var temp = thirdArray.data;
         temp.push(dragElement.item);
-        setThirdArray(temp);
+        setThirdArray({data:temp, count: temp.length});
       }
     }
   };
@@ -46,7 +50,7 @@ function DragAndDrop() {
         onDragOver={(e) => allowDrop(e)}
         onDrop={(e) => handleDrop(e)}
       >
-        {firstArray.map((item, index) => {
+        {firstArray.data.map((item, index) => {
           return (
             <p
               draggable="true"
@@ -62,7 +66,7 @@ function DragAndDrop() {
         onDragOver={(e) => allowDrop(e)}
         onDrop={(e) => handleDrop(e)}
       >
-        {secondArray.map((item, index) => {
+        {secondArray.data.map((item, index) => {
           return (
             <p
               draggable="true"
@@ -78,7 +82,7 @@ function DragAndDrop() {
         onDragOver={(e) => allowDrop(e)}
         onDrop={(e) => handleDrop(e)}
       >
-        {thirdArray.map((item, index) => {
+        {thirdArray.data.map((item, index) => {
           return (
             <p
               draggable="true"

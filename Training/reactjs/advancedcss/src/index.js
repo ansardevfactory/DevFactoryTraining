@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'; 
-import DropDownSample from './DropDownSample'; 
+import DragAndDrop from './DragAndDrop'; 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <DropDownSample />
+    <DragAndDrop />
   </React.StrictMode>
 ); 
