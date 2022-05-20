@@ -5,7 +5,7 @@ import Example from './example'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 // import BasicPage from "./BasicPage";
-import Sample from "./SassSample";
+import Sample from "./Sample";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

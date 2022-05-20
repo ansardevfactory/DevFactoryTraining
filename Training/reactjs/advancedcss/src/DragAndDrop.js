@@ -55,6 +55,17 @@ function DragAndDrop() {
     setDragElement({ index: index, startedDiv: startedDiv, item: item });
   };
 
+  const handleDragging=(e, i)=>{
+    console.log(i)
+    // console.log(e.target)
+    // console.log(e.target.nextSibling)
+    // if(e.target.id=="p"){
+    //   console.log("move")
+    // }else {
+    //   console.log("drop")
+    // }
+  }
+
   return (
     <div className="drageAndDrop">
       <div
@@ -66,6 +77,7 @@ function DragAndDrop() {
           return (
             <p
               draggable="true"
+              // onDrag={(e)=>{handleDragging(e)}}
               onDragStart={(e) => handleDrag(e, index, "firstDiv", item)}
             >
               {item}
@@ -76,13 +88,15 @@ function DragAndDrop() {
       <div
         className="secondDiv"
         onDragOver={(e) => allowDrop(e)}
-        onDrop={(e) => handleDrop(e)}
+        onDrop={(e) => handleDrop(e)} 
+        onDrag={(e,i)=>{handleDragging(e,i)}}
       >
         {secondArray.data.map((item, index) => {
           return (
             <p
               draggable="true"
               onDragStart={(e) => handleDrag(e, index, "secondDiv", item)}
+              id={item}
             >
               {item}
             </p>
@@ -98,6 +112,7 @@ function DragAndDrop() {
           return (
             <p
               draggable="true"
+              onDrag={(e)=>{handleDragging(e)}}
               onDragStart={(e) => handleDrag(e, index, "thirdDiv", item)}
             >
               {item}

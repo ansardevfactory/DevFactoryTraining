@@ -12,17 +12,18 @@ export const Card = ({ id, text, index, moveCard }) => {
   const ref = useRef(null)
   const [{ handlerId }, drop] = useDrop({
     accept: ItemTypes.CARD,
-    collect(monitor) {
+    collect(monitor) { 
       return {
         handlerId: monitor.getHandlerId(),
       }
     },
     hover(item, monitor) {
+      // console.log(ref)
       if (!ref.current) {
         return
       }
       const dragIndex = item.index
-      const hoverIndex = index
+      const hoverIndex = index 
       // Don't replace items with themselves
       if (dragIndex === hoverIndex) {
         return
@@ -40,19 +41,21 @@ export const Card = ({ id, text, index, moveCard }) => {
       // When dragging downwards, only move when the cursor is below 50%
       // When dragging upwards, only move when the cursor is above 50%
       // Dragging downwards
-      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-        return
-      }
+      // console.log(dragIndex)
+      // return 
+      // if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+      //   // console.log("Here1")
+      //   return
+      // }
+      // return 
       // Dragging upwards
-      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-        return
-      }
+      // if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+      //   // console.log("Here2")
+      //   return
+      // }
       // Time to actually perform the action
-      moveCard(dragIndex, hoverIndex)
-      // Note: we're mutating the monitor item here!
-      // Generally it's better to avoid mutations,
-      // but it's good here for the sake of performance
-      // to avoid expensive index searches.
+      moveCard(dragIndex, hoverIndex) 
+      console.log(hoverIndex)
       item.index = hoverIndex
     },
   })
