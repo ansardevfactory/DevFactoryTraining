@@ -201,6 +201,7 @@ async function test() {
       }
     );
   });
+  
   const epic = new Promise((resolve, reject) => {
     con.query(
       "select id,refProjectId,refAssignee,txtTitle,txtStatus from tblepic;",
@@ -210,6 +211,7 @@ async function test() {
       }
     );
   });
+
   const task = new Promise((resolve, reject) => {
     con.query(
       "select id,refEpicid,txtTitle,txtStatus from tbltasks",
@@ -234,6 +236,7 @@ async function test() {
         taskobj[element.refEpicid] = [...temp, element];
       }
     }
+
     for (element of epic) {
         if (taskobj[element.id] == undefined) element.task = [];
         else {
