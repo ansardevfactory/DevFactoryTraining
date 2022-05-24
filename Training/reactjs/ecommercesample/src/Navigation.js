@@ -6,14 +6,15 @@ import {
     Routes,
     Route,
   } from "react-router-dom";
-
+import NewSample from "./DropDownSample";
+import Users from './Users'
 function Navigation() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage />}></Route>
-          <Route path="/signup" element={<SignUpPage />}></Route>
+          <Route path="/" element={<Users />}></Route>
+          <Route path="/signup" element={<NewSample />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
       </BrowserRouter>
