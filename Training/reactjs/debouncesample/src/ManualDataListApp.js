@@ -1,8 +1,6 @@
 import React, { useCallback, useState } from "react";
 import debounce from "lodash.debounce";
 import axios from "axios";
-import DatalistInput from "react-datalist-input";
-import "react-datalist-input/dist/styles.css";
 import ManualDataList from "./ManualDataList";
 
 function App() {
@@ -13,7 +11,6 @@ function App() {
 
   const debouncedComp = useCallback(
     debounce((txt) => {
-      console.log("insidedebounce");
       axios.post("http://localhost:8000/test", { txt: txt }, {}).then((res) => {
         console.log(res);
         setArray(res.data);
@@ -28,23 +25,19 @@ function App() {
     []
   );
   const handleClick = (e) => {
-    console.log("onhandle");
     setInput(e.target.value);
     e.preventDefault();
     debouncedComp(e.target.value);
   };
-  const handleCounter = () => {
-    console.log("handlecounter");
-    setCounter(counter + 1);
-  };
   return (
     <>
-      <DatalistInput
-        placeholder="Search Here.."
-        label="Select Item"
-        onChange={(e) => handleClick(e)}
-        onSelect={(item) => console.log(item.value)}
+      <ManualDataList
         items={arraynew}
+        onSelect={(e) => {
+          console.log(e);
+        }}
+        onChange={(e) => handleClick(e)}
+        buttonClick={(e)=>{alert(e.target)}} 
       />
     </>
   );

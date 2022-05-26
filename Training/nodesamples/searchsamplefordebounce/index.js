@@ -17,7 +17,7 @@ app.use(cors())
 
 const projectfetch = (txt) => {
     return new Promise((resolve) => {
-      con.query("select * From tblstate where txtName like '%"+txt+"%' limit 3", (err, result) => {
+      con.query("select * From tblstate where txtName like '"+txt+"%' order by txtName asc limit 6", (err, result) => {
         if (err) console.log(err); 
         resolve(result);
       });
