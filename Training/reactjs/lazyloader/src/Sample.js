@@ -1,35 +1,82 @@
-import { Suspense } from "react";
-import { fetchProfileData } from "./fakeApi"; 
-const resource = fetchProfileData();
+import React, { useCallback, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import InfiniteScroll from 'react-infinite-scroller'; 
 
-function ProfilePage() {
-  return (
-    <Suspense fallback={<h1>Loading profile...</h1>}>
-      <ProfileDetails />
-      <Suspense fallback={<div style={{backgroundColor:"red"}}><h1>Loading posts...</h1></div>}>
-        <ProfileTimeline />
-      </Suspense>
-    </Suspense>
+async function fetchIssues(url) {
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: new Headers({
+      Accept: 'application/vnd.github.v3+json'
+    })
+  });
+
+  console.log(response.headers.get('Link'));
+   const links = [];//parseLinkHeader(response.headers.get('Link'));
+  const issues = await response.json();
+
+  return {
+    links,
+    issues
+  };
+}
+
+const App = () => {
+  const [items, setItems] = useState([]);
+  const [nextPageUrl, setNextPageUrl] = useState(
+    'https://api.github.com/repos/facebook/react/issues'
   );
-}
+  const [fetching, setFetching] = useState(false);
 
-function ProfileDetails() {
-  // Try to read user info, although it might not have loaded yet'
-  console.log(resource)
-  const user = resource.user.read();
-  return <h1>{user.name}</h1>;
-}
+  const fetchItems = useCallback(
+    async () => {
+      if (fetching) {
+        return;
+      }
 
-function ProfileTimeline() {
-  // Try to read posts, although they might not have loaded yet
-  const posts = resource.posts.read();
-  return (
-    <ul>
-      {posts.map((post) => (
-        <li key={post.id}>{post.text}</li>
-      ))}
-    </ul>
+      setFetching(true);
+
+      try {
+        const { issues, links } = await fetchIssues(nextPageUrl);
+
+        setItems([...items, ...issues]);
+
+        if (links.next) {
+          setNextPageUrl(links.next.url);
+        } else {
+          setNextPageUrl(null);
+        }
+      } finally {
+        setFetching(false);
+      }
+    },
+    [items, fetching, nextPageUrl]
   );
-}
 
-export default ProfilePage;
+  const hasMoreItems = !!nextPageUrl;
+
+  const loader = (
+    <div key="loader" className="loader">
+      Loading ...
+    </div>
+  );
+
+  return (
+    <InfiniteScroll
+      loadMore={fetchItems}
+      hasMore={hasMoreItems}
+      loader={loader}
+    >
+      <ul>
+        {items.map(item => (
+          <li key={item.id}>
+            <a href={item.url} target="_blank" rel="noopener">
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </InfiniteScroll>
+  );
+};
+
+export default App;
