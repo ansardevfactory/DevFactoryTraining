@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import downarrow from "./images/downarrow.png";
 import logo from "./images/snowlogo.png";
 import menu from "./images/menu.png";
@@ -6,9 +6,22 @@ import "./style.css";
 import search from "./images/search.png";
 import cross from "./images/cross.png";
 import add from "./images/add.png";
+import { BsThreeDots } from "react-icons/bs";
+import FullModal from './FullModal';
+import Modal from './Modal'
 export default function App() {
+  const [array, setArray] = useState([1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 4]);
+
+  const [show,setShow]=useState(false)
+  const [modalshow,setModalShow]=useState(false)
+  function handleModalClick(e){
+    e.preventDefault(); 
+    setModalShow(modalshow?false:true);
+  }
   return (
-    <>
+    <> 
+    <FullModal show={show} setShow={setShow}/>
+    <Modal modalshow={modalshow} setModalShow={setModalShow}/>
       <div className="main">
         <div className="main_menunbar">
           <img src={logo} />
@@ -48,7 +61,7 @@ export default function App() {
           </div>
         </div>
         <div className="main_contentbar">
-          <button className="fab_button">+</button>
+          <button onClick={(e)=>{handleModalClick(e)}}  className="fab_button">+</button>
           <div className="main_contentbar_headerbar">
             <div className="main_contentbar_headerbar_left">
               <div>
@@ -90,774 +103,57 @@ export default function App() {
             </div>
           </div>
           <div className="main_contentbar_list">
-            <table>
-              <thead>
-                <th></th>
-                <th>Head1</th>
-                <th>Date</th>
-                <th>New Head</th>
-                <th>Head</th>
-                <th>Last Head</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
+            <div className="table_head">
+              <label></label>
+              <label>Head1</label>
+              <label>Date</label>
+              <label>New Head</label>
+              <label>Head</label>
+              <label>Last Head</label>
+              <label></label>
+            </div>
+            {array.map((itm, indx) => {
+              return (
+                <div className={itm == 2 ? "row_full active" : "row_full"}>
+                  <div className="table_row">
                     <input type={"checkbox"} />
-                  </td>
-                  <td>
                     <label>#1006</label>
-                  </td>
-                  <td>
                     <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
                     <label>Paid</label>
-                  </td>
-                  <td>
                     <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
                     <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>{" "}
-                <tr>
-                  <td>
-                    <input type={"checkbox"} />
-                  </td>
-                  <td>
-                    <label>#1006</label>
-                  </td>
-                  <td>
-                    <label>20 Sep, 23:11</label>
-                  </td>
-                  <td>
-                    <label>Paid</label>
-                  </td>
-                  <td>
-                    <label>Make Lemonade</label>
-                  </td>
-                  <td>
-                    {" "}
-                    <label>Splashify 2.0</label>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    <label>
+                      <BsThreeDots />
+                    </label>
+                  </div>
+                  <div className={itm == 2 ? "visible" : "hidden"}>
+                    <div className="epic_row">
+                      <label>#1006</label>
+                      <label>20 Sep, 23:11</label>
+                      <label>Paid</label>
+                      <label>Make Lemonade</label>
+                      <label>Splashify 2.0</label>
+                      <label>
+                        <BsThreeDots />
+                      </label>
+                    </div>{" "}
+                    <div className="epic_row">
+                      <label>#1006</label>
+                      <label>20 Sep, 23:11</label>
+                      <label>Paid</label>
+                      <label>Make Lemonade</label>
+                      <label>Splashify 2.0</label>
+                      <label>
+                        <BsThreeDots />
+                      </label>
+                    </div>
+                    <div className="buttonrow">
+                      <button onClick={(e)=>setShow(show?false:true)}>+ Create Epic</button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
