@@ -1,4 +1,4 @@
-import style from '../style/style.js';
+import style from './style/style.js';
 import React from 'react';
 import {Text, StatusBar, View} from 'react-native';
 
