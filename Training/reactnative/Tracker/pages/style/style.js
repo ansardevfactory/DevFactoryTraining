@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     color: white,
   },
   white: {
-    color: 'white', 
+    color: 'white',
     fontWeight: 'bold',
   },
   header: {
@@ -17,6 +17,11 @@ const styles = StyleSheet.create({
   },
   secondary: {
     color: 'white',
+  },
+  outer: {
+    display: 'flex',
+    justifyContent: 'center',
+    minHeight: '100%',
   },
   main: {
     textAlign: 'center',
@@ -67,29 +72,58 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  rowmain:{
+  rowmain: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     paddingHorizontal: 10,
-
-  }
-  ,loginbtn:{
-    backgroundColor:'blue' , 
-    paddingVertical:10,
-    paddingHorizontal:20,
-    marginHorizontal:10,
-    justifyContent:'center',
-    alignItems:'center', 
-    borderRadius:20,
   },
-  bold:{
-    fontWeight:'bold'
-  }
-  ,blue:{
-    color:'blue'
-  }
+  loginbtn: {
+    backgroundColor: 'blue',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginHorizontal: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+  },
+  bold: {
+    fontWeight: 'bold',
+  },
+  blue: {
+    color: 'blue',
+  },
+  summaryActionBar: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingHorizontal: 5,
+    paddingVertical: 5,
+    width: '100%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  summaryActionBarLeft: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  summaryActionBarRightText: {
+    backgroundColor: 'blue',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    color: 'white',
+    borderRadius: 25,
+  },
+  summaryActionBarLeftText: {
+    fontWeight: 'bold',
+    fontSize: 22,
+    color:'black',
+    marginLeft: 5,
+  },
 });
 
 export default styles;
