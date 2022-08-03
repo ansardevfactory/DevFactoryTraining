@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import img from './images/one.png';
 import {View, Image, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import style from './style.js'
+// import database from '@react-native-firebase/database';
+import database from '@react-native-firebase/database';
+import { firebase } from '@react-native-firebase/database';
+
 export default function App() {
+
+ 
+useEffect(()=>{
+  // alert("Test")
+  const reference = firebase.app()
+  .database("https://jinuproject-d004e-default-rtdb.asia-southeast1.firebasedatabase.app")
+  .ref('/Track/loc1');
+  database()
+  .ref('/Track/loc1')
+  .once('value')
+  .then(snapshot => {
+    console.log('User data: ', snapshot.val());
+  });
+
+},[])
+
      const navigation=useNavigation();
     
 const handleLogin=()=>{

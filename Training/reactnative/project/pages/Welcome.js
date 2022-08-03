@@ -21,10 +21,10 @@ export default function App() {
           much as possible. For us to do that, we request you to enable these
           permissions on your device
         </Text>
-        <Text style={[style.white, style.s3]}>Precise Location</Text>
-        <Text style={[style.white, style.s3]}>Motion Detection</Text>
-        <Text style={[style.white, style.s3]}>Notifications</Text>
-        <Text style={[style.white, style.s3]}>
+        <Text style={[style.white, style.s3,{marginTop:20, marginLeft:10}]}>{'\u2022'}   Precise Location </Text>
+        <Text style={[style.white, style.s3,{marginTop:20, marginLeft:10}]}>{'\u2022'}   Motion Detection</Text>
+        <Text style={[style.white, style.s3,{marginTop:20, marginLeft:10}]}>{'\u2022'}   Notifications</Text>
+        <Text style={[style.white, style.s3,{marginTop:20}]}>
           Please click the icons to enable them
         </Text>
       </View> 
