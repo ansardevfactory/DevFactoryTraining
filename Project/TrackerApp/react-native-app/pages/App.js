@@ -9,26 +9,7 @@ import database from '@react-native-firebase/database';
 export default function App() {
   const [data, setData] = useState('testing');
 
-  useEffect(() => {
-    //  alert("Test")
-    // const reference = firebase
-    //   .app()
-    //   .database(
-    //     'https://jinuproject-d004e-default-rtdb.asia-southeast1.firebasedatabase.app/',
-    //   )
-    //   .ref('User');
-    // reference.on('value', snapshot => {
-    //   alert('test')
-    //   setData(snapshot.val());
-    // });
-    // const users = await firestore().collection('test').get();
-    // const subscriber = firestore()
-    // .collection('test')
-    // .doc('test')
-    // .onSnapshot(documentSnapshot => {
-    //   console.log('User data: ', documentSnapshot);
-    //   setData("here")
-    // });
+  useEffect(() => { 
   }, []);
 
   const navigation = useNavigation();
@@ -51,26 +32,7 @@ export default function App() {
         console.log('User data: ', snapshot.val());
       });
   };
-  const handleAuth = () => {
-    // auth()
-    //   .createUserWithEmailAndPassword(
-    //     'jane.doe@example.com',
-    //     'SuperSecretPassword!',
-    //   )
-    //   .then(() => {
-    //     console.log('User account created & signed in!');
-    //   })
-    //   .catch(error => {
-    //     if (error.code === 'auth/email-already-in-use') {
-    //       console.log('That email address is already in use!');
-    //     }
-
-    //     if (error.code === 'auth/invalid-email') {
-    //       console.log('That email address is invalid!');
-    //     }
-
-    //     console.error(error);
-    //   });
+  const handleAuth = () => { 
   };
   const handleSignUp = () => {
     navigation.navigate('Signup');
@@ -99,14 +61,17 @@ export default function App() {
       <Text style={[style.white, style.s2, style.smalltxt]}>
         Already have an account?
       </Text>
-      <TouchableOpacity style={style.button} onPress={handleInsert}>
+      <TouchableOpacity style={[style.button,{display:'none'}]} onPress={handleInsert}>
         <Text style={style.yellow}>INSERT</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={style.button} onPress={handleRead}>
+      <TouchableOpacity style={[style.button,{display:'none'}]} onPress={handleRead}>
         <Text style={style.yellow}>READ DATA</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={style.button} onPress={handleAuth}>
+      <TouchableOpacity style={[style.button,{display:'none'}]} onPress={handleAuth}>
         <Text style={style.yellow}>AUTH</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[style.button]} onPress={handleAuth}>
+        <Text style={style.yellow}>SIGN IN</Text>
       </TouchableOpacity>
       <Text style={[style.white, style.s2]}>
         Want to champion carbon reduction?
