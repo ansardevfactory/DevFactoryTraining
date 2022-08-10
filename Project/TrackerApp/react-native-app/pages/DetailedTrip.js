@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from './Footer';
 import {
   View,
@@ -106,43 +106,71 @@ export default function App() {
       },
     ],
   };
-  const html = `
-  <!DOCTYPE html> 
-<html>
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-      crossorigin="" />
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script
-      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-      crossorigin=""></script>
-  </head>
-  <body style="margin: 0">
-    <div
-      id="map"
-      style="width: 100%; height: 100vh; background-color: 'red'"></div>
-    <script>
-      var map = L.map('map').setView([51.505, -0.09], 13);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap',
-      }).addTo(map);
-    </script>
-  </body>
-</html>
-
-    `;
+  const [marker, setMarker]=useState([50, -0.09])
+  const [marker2, setMarker2]=useState([30, -0.09]) 
+  const a=[17.385044, 78.486671]
+  const b=[12.971599, 77.594563]
+  const[ html, setHtml ]=useState(``);
+  useEffect(()=>{ 
+    let tg=`<!DOCTYPE html>
+      <html>
+         <head>
+            <title>Leaflet Multi Polylines</title>
+            <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+            <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+         </head>
+         
+         <body>
+            <div id = "map" style = "width: 100%; height: 100vh;"></div>
+            <script>
+               // Creating map options
+               var mapOptions = {
+                  center: [16.506174, 80.648015],
+                  zoom: 7
+               }
+               // Creating a map object
+               var map = new L.map('map', mapOptions);
+               
+               // Creating a Layer object
+               var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+               
+               // Adding layer to the map
+               map.addLayer(layer);
+               
+               // Creating latlng object
+               var latlang = [
+                  [[17.385044, 78.486671], [16.506174, 80.648015], [17.686816, 83.218482]],
+                  [[13.082680, 80.270718], [12.971599, 77.594563],[15.828126, 78.037279]]
+               ];
+               
+               // Creating poly line options
+               var multiPolyLineOptions = {color:'red'};
+               
+               // Creating multi poly-lines
+               var multipolyline = L.multiPolyline(latlang , multiPolyLineOptions);
+               
+               // Adding multi poly-line to map
+               multipolyline.addTo(map);
+               var marker = new L.Marker([`+a+`]);   
+               marker.bindPopup("test").openPopup();
+              marker.addTo(map);
+              var marker2 = new L.Marker([`+b+`]);
+              marker2.bindPopup("test").openPopup();
+              marker2.addTo(map);
+            </script>
+         </body>
+         
+      </html>
+      `
+        setHtml(tg)
+  },[])
   return (
     <View style={[style.bg]}>
       <ScrollView style={style.top}>
         <Text style={[style.shadedwhite, style.bold]}>{'<'}Trips</Text>
 
         <View style={{height:windowHeight-100, borderRadius:40,  overflow:'hidden'}}>
-          <View style={{backgroundColor: '#151515', margin:20, position:'absolute' , zIndex: 1, width:'90%', borderRadius:10,padding:10}}>
+          <View style={{backgroundColor: '#151515', margin:20,marginTop:50, position:'absolute' , zIndex: 1, width:'90%', borderRadius:10,padding:10}}>
             <View>
               <Text style={style.white}>Grafton westborough</Text>
               <Text style={style.white}>Mon, 6 Jun - 10:20 am - 55min</Text>
