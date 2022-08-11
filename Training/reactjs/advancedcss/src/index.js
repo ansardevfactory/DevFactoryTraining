@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';  
-import Sample from './ExpandCollapse'
+import Sample from './Loader'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

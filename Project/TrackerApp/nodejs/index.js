@@ -32,6 +32,33 @@ app.get("/getdata", async (req, res) => {
   res.send(JSON.stringify(users) + "");
 });
 
+
+app.get("/getdatawhere", async (req, res) => {
+  // const collectionData = db.collection("abc@gmail.com").get();
+  // const singleDoc = db.collection("abc@gmail.com").doc("trip_1").get();
+  const users = await db.collection("newcoll").where("age",'>',"0").get();
+  
+  // const liam = db.collection('users').doc('newdoc');
+
+// const observer = liam.onSnapshot(snapshot => {
+//  console.log(`changes: ${JSON.stringify(snapshot)}`);
+// }, err => {
+//  console.log(`Error: ${err}`);
+// });
+
+   
+  res.send(JSON.stringify(users) + "");
+
+  // await db.collection("newcoll").doc('newdoc').set({
+  //   first: 'Vanessa',
+  //   last: 'Peluso',
+  //   address: '49 Main St., Tampa, FL',
+  //   birthday: '11/30/1977',
+  //   age: '47'
+  //  });
+  // res.send("test")
+});
+
 app.get("/insert", async (req, res) => {
   const users = await db
     .collection("abc@email.com")
