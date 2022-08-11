@@ -10,7 +10,8 @@ export default function App() {
   const navigation=useNavigation();
 
   const handlePress=()=>{
-    navigation.navigate("Welcome")
+    // navigation.navigate("Welcome")
+    navigation.goBack();
   }
   return (
     <View style={[style.bg]}>

@@ -35,8 +35,14 @@ export default function App() {
   const handleAuth = () => { 
   };
   const handleSignUp = () => {
-    navigation.navigate('Signup');
+    // navigation.navigate('Signup');
   };
+
+  const handleSignin=(e)=>{
+    // alert('hi')
+    navigation.navigate("Profile")
+  }
+
   return (
     <View style={[style.Welcome, style.bg]}>
       <Text style={[style.yellow, style.s1, style.bold, style.title]}>
@@ -70,7 +76,7 @@ export default function App() {
       <TouchableOpacity style={[style.button,{display:'none'}]} onPress={handleAuth}>
         <Text style={style.yellow}>AUTH</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[style.button]} onPress={handleAuth}>
+      <TouchableOpacity style={[style.button]} onPress={e=>handleSignin(e)}>
         <Text style={style.yellow}>SIGN IN</Text>
       </TouchableOpacity>
       <Text style={[style.white, style.s2]}>
