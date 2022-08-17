@@ -20,16 +20,31 @@ export default function App() {
   }, []);
 
   const createUser = e => {
+    // auth().createUserWithEmailAndPassword(em,pass).then().
+
+
     auth()
-      .createUserWithEmailAndPassword('test@email.com', 'test@123')
+      .createUserWithEmailAndPassword('devtrainiasdngnew@email.com', 'test@123')
       .then(userCred => {
-        alert(JSON.stringify(userCred)+"")
+        alert(JSON.stringify(userCred.additionalUserInfo.isNewUser)+"")
         // if (userCred) { 
         //   // setToken(userCred)
         // }
       }).catch(err=>alert(err))
   };
   const signInUser = e => {
+
+    // auth().signInWithEmailAndPassword(em, ps)
+    // .then(reslt=>{
+    //   auth().currentUser.getIdToken(true).then().catch(err=>{
+    //     alert("error")
+    //   })
+    // })
+    // .catch((err)=>{
+    //   console.log(err)
+    // })
+
+
     auth()
       .signInWithEmailAndPassword('test@email.com', 'test@123')
       .then(userCred => {
@@ -46,8 +61,8 @@ export default function App() {
  
     return (
       <View>
-        <TouchableOpacity onPress={e => signInUser(e)}>
-          <Text>Login</Text>
+        <TouchableOpacity style={{backgroundColor:'red', padding:10, margin:20,}} onPress={e => createUser(e)}>
+          <Text style={{fontSize:50}}>SignUp</Text>
         </TouchableOpacity>
       </View>
     ); 

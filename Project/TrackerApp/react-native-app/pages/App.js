@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import img from './images/one.png';
-import {View, Image, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {View, Image, Text, TouchableOpacity, StyleSheet} from 'react-native'; 
 import style from './style.js';
 import database from '@react-native-firebase/database';
+import { useNavigation } from '@react-navigation/native';
 // import auth from '@react-native-firebase/auth';
 
 export default function App() {
@@ -11,8 +11,7 @@ export default function App() {
 
   useEffect(() => { 
   }, []);
-
-  const navigation = useNavigation();
+ const navigation=useNavigation();
 
   const handleInsert = () => {
     database()

@@ -28,10 +28,24 @@ app.get("/register", function (req, res, next) {
 app.get("/getdata", async (req, res) => {
   // const collectionData = db.collection("abc@gmail.com").get();
   // const singleDoc = db.collection("abc@gmail.com").doc("trip_1").get();
-  const users = await db.collection("users").doc("trip_1").get();
+  const users = await db.collection("abc@email.com").doc("trip_1").get();
   res.send(JSON.stringify(users) + "");
 });
 
+app.get("/update",async (req, res) => {
+  const liam = await
+ db.collection('newcoll').doc('newdoc').update({
+   'favorites.item': 'Test Data'
+ });
+res.send("Success")
+})
+
+
+app.get("/delete",async (req, res) => {
+  const liam = await
+ db.collection('users').doc('trip_1').delete()
+res.send("Success")
+})
 
 app.get("/getdatawhere", async (req, res) => {
   // const collectionData = db.collection("abc@gmail.com").get();
@@ -62,14 +76,14 @@ app.get("/getdatawhere", async (req, res) => {
 app.get("/insert", async (req, res) => {
   const users = await db
     .collection("abc@email.com")
-    .doc("trip_1")
-    .set({ test: { data: "one" } });
+    .doc("trip_1").collection("newcoll").doc("trip_1")
+    .set({"sampledata":"sampledata", "lat":"10", "long":"50"});
   res.send(JSON.stringify(users) + "");
 });
 
-app.post("/getdata", authMiddleware, async (req, res) => {
-  const users = await db.collection("users").doc("trip_1").get();
-  res.send(JSON.stringify(users) + "");
-});
+// app.post("/getdata", authMiddleware, async (req, res) => {
+//   const users = await db.collection("users").doc("trip_1").get();
+//   res.send(JSON.stringify(users) + "");
+// });
 
 app.listen(4000, () => console.log("The server is running at PORT 4000"));
