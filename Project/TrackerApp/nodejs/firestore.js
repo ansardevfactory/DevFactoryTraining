@@ -5,12 +5,80 @@ const app = express(); //
 const db = firebase.firestore();
 app.use(express.json()); //for reading json request
 
+app.get("/insertnew", async (req, res) => {
+  const citiesRef = db.collection("cities");
+
+  await citiesRef.doc("SF").collection("landmarks").doc().set({
+    name: "Golden Gate Bridge",
+    type: "bridge",
+  });
+  await citiesRef.doc("SF").collection("landmarks").doc().set({
+    name: "Legion of Honor",
+    type: "museum",
+  });
+  await citiesRef.doc("LA").collection("landmarks").doc().set({
+    name: "Griffith Park",
+    type: "park",
+  });
+  await citiesRef.doc("LA").collection("landmarks").doc().set({
+    name: "The Getty",
+    type: "museum",
+  });
+  await citiesRef.doc("DC").collection("landmarks").doc().set({
+    name: "Lincoln Memorial",
+    type: "memorial",
+  });
+  await citiesRef.doc("DC").collection("landmarks").doc().set({
+    name: "National Air and Space Museum",
+    type: "museum",
+  });
+  await citiesRef.doc("TOK").collection("landmarks").doc().set({
+    name: "Ueno Park",
+    type: "park",
+  });
+  await citiesRef.doc("TOK").collection("landmarks").doc().set({
+    name: "National Museum of Nature and Science",
+    type: "museum",
+  });
+  await citiesRef.doc("BJ").collection("landmarks").doc().set({
+    name: "Jingshan Park",
+    type: "park",
+  });
+  await citiesRef.doc("BJ").collection("landmarks").doc().set({
+    name: "Beijing Ancient Observatory",
+    type: "museum",
+  });
+});
+
+app.get("/getdatanew", async (req, res) => {
+  var r = "";
+  const querySnapshot = await db
+    .collectionGroup("landmarks")
+    .where("type", "==", "museum")
+    .get();
+  querySnapshot.forEach((doc) => {
+    r += doc.id + " => " + JSON.stringify(doc.data());
+  });
+  res.send(r);
+});
 app.post("/getdata", async (req, res) => {
   console.log(req.body);
   let coll = req.body.collection;
   let doc = req.body.document;
   const users = await db.collection(coll).doc(doc).get();
   res.send(JSON.stringify(users) + "");
+});
+app.get("/newread", async (req, res) => {
+  const citiesRef = await db
+    .doc("sample/TOK")
+    .collection("test")
+    .doc("test")
+    .get();
+  // const snapshot = await citiesRef.where("test/capital", "==", true).get().then((r)=>{
+  //   const l=r.docs;
+  //   res.send(l)
+  // })
+  res.send(citiesRef);
 });
 app.get("/read", async (req, res) => {
   const citiesRef = db.collection("sample");
