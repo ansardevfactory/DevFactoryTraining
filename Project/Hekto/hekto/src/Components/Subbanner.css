@@ -5,15 +5,12 @@ body{
 .page{
     display: flex;
     flex-direction: column;
-   
-    /* padding-top: 100px; */
-    /* padding-bottom: 100px; */
+    background-color: #EEEFFB; 
    
 }
 .row1{
     display: flex;
-    flex-direction: row;
-    background-color: white;
+    flex-direction: row; 
     padding-bottom: 20px;
     width: 100%;
     padding-left: 250px;
@@ -27,8 +24,7 @@ body{
 }
 .row2{
     display: flex;
-    flex-direction: row;
-    background-color: white;
+    flex-direction: row; 
     width: 100%;
     padding-left: 250px;
     padding-bottom: 100px;
@@ -37,8 +33,7 @@ body{
 .row2_b2 button,
 .row2_b1 button{
   border: none;
-color:black;
-background-color: white;
+color:black; 
 font-size: .8rem;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 /* letter-spacing: 1px; */
