@@ -1,0 +1,80 @@
+.Orderlist_images-cover{
+    display: flex;
+    flex-direction: row;
+    background-color: aqua;
+padding-left: 44px;
+}
+
+
+.outerlist-l1{
+    background-color: white;
+    text-align: center;
+    padding-bottom: 44px;
+    color: blue;
+    font-size: 32px;
+}
+
+.outerlist-hghhfgfgfhgf{
+    background-color: rgb(217, 221, 212);
+    padding-left: 12px;
+    padding-right: 12px;
+    /* padding-bottom: 22px; */
+    padding-top: 22px; 
+}
+
+
+.ohyfffkgfkcgt-img-truck{
+    padding-top: 22px;
+    background-color: white;
+}
+
+.outerlist-img-cover{
+    display: flex;
+    flex-direction: row;
+    /* background-color: blueviolet; */
+    justify-content: center;
+}
+
+.outerlist-img-truck{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.oc_img-lbl{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+
+.orderlisttttt{
+   
+    background-color:  rgb(217, 221, 212);
+    text-align: center;
+    align-items: center;
+    padding-bottom: 22px;
+    /* padding-left: 32px; */
+    /* padding-right: 22px; */
+}
+
+.orderlist-img-hndgg{
+    font-size: 22px;
+    /* color: blue; */
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+.orderlist-under-lbl-img{
+    /* color: rgb(114, 114, 114); */
+    color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 22px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 22;
+
+}
+
+

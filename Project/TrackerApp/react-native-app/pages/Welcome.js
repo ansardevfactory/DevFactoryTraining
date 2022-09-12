@@ -7,7 +7,7 @@ export default function App() {
   const navigation = useNavigation();
 
   const handleSignUp = () => {
-    navigation.navigate('Dashboard');
+    navigation.navigate('Signup');
   };
 
   return (

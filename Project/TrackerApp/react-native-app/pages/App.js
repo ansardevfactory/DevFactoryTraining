@@ -34,7 +34,7 @@ export default function App() {
   const handleAuth = () => { 
   };
   const handleSignUp = () => {
-    // navigation.navigate('Signup');
+    navigation.navigate('SignUp');
   };
 
   const handleSignin=(e)=>{
@@ -48,7 +48,7 @@ export default function App() {
         A Plea to reduce carbon footprint{data}
       </Text>
       <Image source={img} />
-      <View style={style.textContainer}>
+      <View style={[style.textContainer, {}]}>
         <Text style={[style.shadedwhite, style.para, style.s4]}>
           We are conducting this exercise to baseline the carbon footprint of
           individuals and communities.
@@ -81,7 +81,7 @@ export default function App() {
       <Text style={[style.white, style.s2]}>
         Want to champion carbon reduction?
       </Text>
-      <TouchableOpacity onPress={handleSignUp}>
+      <TouchableOpacity onPress={e=>handleSignUp(e)}>
         <Text style={[style.white, style.s3, style.bold]}>SIGN UP</Text>
       </TouchableOpacity>
     </View>

@@ -31,3 +31,6 @@ body{
     margin-left: 10px;
     flex-direction: column;
 }
+#label:hover  + #button{
+    background-color: red;
+} 

@@ -1,16 +1,44 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import style from './style.js';
+import auth from '@react-native-firebase/auth';
 
 export default function App() {
-  const navigation=useNavigation();
+  const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState(''); 
 
+
+  // const token=useSelector(state=>state.token)
+  // const dispatch=useDispatch();
+
+  const handleSignUp = e => {
   
-const handleSignUp=()=>{
-  navigation.navigate("Profile")
 
-}
+    // alert('test')
+    auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCred => {
+        alert(JSON.stringify(userCred) + '');
+      })
+      .catch(err => alert(err));
+  };
+
+  const handleSignIn = e => {
+    auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(userCred => {
+      console.log(userCred);
+      auth()
+        .currentUser.getIdToken(true)
+        .then(tkn => {
+          // dispatch({type:"setToken", payload:tkn})
+          alert(tkn);
+        });
+    })
+    .catch(err => alert(err));
+  };
 
   return (
     <View style={[style.bg]}>
@@ -19,11 +47,22 @@ const handleSignUp=()=>{
       </Text>
       <View>
         <Text style={[style.shadedwhite, style.bold]}>Email</Text>
-        <TextInput style={[style.bordedtext]}></TextInput>
+        <TextInput
+          style={[style.bordedtext, {color: 'white'}]}
+          value={email}
+          onChangeText={e => setEmail(e)}
+          placeholder="Enter email"
+          placeholderTextColor={'gray'}></TextInput>
       </View>
       <View>
         <Text style={[style.shadedwhite, style.bold]}>Password</Text>
-        <TextInput style={[style.bordedtext]}></TextInput>
+        <TextInput
+          style={[style.bordedtext, {color: 'white'}]}
+          placeholder="Enter password"
+          placeholderTextColor={'gray'}
+          secureTextEntry={true}
+          onChangeText={e => setPassword(e)}
+          value={password}></TextInput>
       </View>
       <Text style={[style.white, style.s2, style.smalltxt]}>
         Passwords must contain at least 8 characters including a number and
@@ -44,10 +83,15 @@ const handleSignUp=()=>{
           Policy.
         </Text>
       </View>
-      <TouchableOpacity style={[style.button]} onPress={handleSignUp}>
-        <Text style={style.yellow} >AGREE and SIGN UP</Text>
+      <TouchableOpacity style={[style.button]} onPress={e => handleSignUp(e)}>
+        <Text style={style.yellow}>AGREE and SIGN UP</Text>
       </TouchableOpacity>
-      <Text style={[style.white, style.s2, style.smalltxt]}>By signing up you are agreeing to our Terms of Service</Text>
+      <TouchableOpacity style={[style.button]} onPress={e => handleSignIn(e)}>
+        <Text style={style.yellow}>SIGNIN</Text>
+      </TouchableOpacity>
+      <Text style={[style.white, style.s2, style.smalltxt]}>
+        By signing up you are agreeing to our Terms of Service
+      </Text>
     </View>
   );
 }

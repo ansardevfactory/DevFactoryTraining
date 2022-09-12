@@ -3,7 +3,8 @@ const authMiddleware = require("./auth-middleware");
 const firebase = require("./firebase/config");
 const app = express();
 const db = firebase.firestore();
-app.get("/register", function (req, res, next) {
+app.use(express.json())
+app.post("/register", function (req, res, next) {
   // res.send("here")
   var email = "abc@email.com";
   var password = "test@123";
@@ -25,11 +26,44 @@ app.get("/register", function (req, res, next) {
     });
 });
 
-app.get("/getdata", async (req, res) => {
-  // const collectionData = db.collection("abc@gmail.com").get();
-  // const singleDoc = db.collection("abc@gmail.com").doc("trip_1").get();
-  const users = await db.collection("abc@email.com").doc("trip_1").get();
-  res.send(JSON.stringify(users) + "");
+//Function sample
+async function read(coll, doc){
+  const users = await db.collection(coll).doc(doc).get(); 
+  return users;
+}
+
+app.post("/getdata", async (req, res) => {
+  
+  //JSON Sample - Request
+  // {
+  //   age:47,
+  //   data:{
+  //     addrs:"one",
+  //     details:{}
+  //     arra:[
+  //       "zero","one","three"
+  //     ]
+  //   }
+  // }
+
+  //Data read from Request
+  // let age=request.body.data.arra[2];
+
+  //Use of request directly in call
+  // await db.collection("newcoll").doc('newdoc').set({
+  //   first: 'Vanessa',
+  //   last: 'Peluso',
+  //   address: '49 Main St., Tampa, FL',
+  //   birthday: '11/30/1977',
+  //   age: request.body.age,
+  //   homeadds:{
+  //     adds1:"value",
+  //   }
+  //  });
+   
+  let StartLocation=req.body.StartLocation;  
+  const users=read("collname","docname");//Function Call
+  res.json({"collectiondata":users, parameter:StartLocation});
 });
 
 app.get("/update",async (req, res) => {
@@ -47,6 +81,7 @@ app.get("/delete",async (req, res) => {
 res.send("Success")
 })
 
+
 app.get("/getdatawhere", async (req, res) => {
   // const collectionData = db.collection("abc@gmail.com").get();
   // const singleDoc = db.collection("abc@gmail.com").doc("trip_1").get();
@@ -63,14 +98,28 @@ app.get("/getdatawhere", async (req, res) => {
    
   res.send(JSON.stringify(users) + "");
 
-  // await db.collection("newcoll").doc('newdoc').set({
-  //   first: 'Vanessa',
-  //   last: 'Peluso',
-  //   address: '49 Main St., Tampa, FL',
-  //   birthday: '11/30/1977',
-  //   age: '47'
-  //  });
-  // res.send("test")
+  {
+    age:47,
+    data:{
+      addrs:"one",
+      arra:[
+        "zero","one","three"
+      ]
+    }
+  }
+
+  let age=request.body.data.arra[2];
+  await db.collection("newcoll").doc('newdoc').set({
+    first: 'Vanessa',
+    last: 'Peluso',
+    address: '49 Main St., Tampa, FL',
+    birthday: '11/30/1977',
+    age: request.body.age,
+    homeadds:{
+      adds1:"value",
+    }
+   });
+  res.send("test")
 });
 
 app.get("/insert", async (req, res) => {

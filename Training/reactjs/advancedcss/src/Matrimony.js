@@ -14,9 +14,9 @@ export default function Matrimony() {
           </div>
         </div>
         <div className="home_row1_right">
-          <label>Already a member?</label>
+          <label id="label">Already a member?</label>
           <div>
-            <button>Log In</button>
+            <button id="button">Log In</button>
           </div>
         </div>
       </div>
