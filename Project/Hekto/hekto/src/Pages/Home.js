@@ -8,6 +8,7 @@ import Discountitem from "../Components/Discountitem";
 import Latestblog from "../Components/Latestblog";
 import BrandList from "../Components/BrandList";
 import InBetweenBanner1 from "../Components/InBetweenBanner1";
+import LatestProducts from "../Components/LatestProducts";
 import "./newstyle.css";
 import imgvar from "../Components/Images/image1.png";
 import imgvar2 from "../Components/Images/image9.png";
@@ -15,7 +16,7 @@ import imgvar2 from "../Components/Images/image9.png";
 export default function Home() {
   return (
     <>
-      <div className="products">
+      <div className="products" style={{display:'none'}}>
         <SingleProduct
           title={"FirstTitle"}
           first={"InsideFirst"}
@@ -45,6 +46,7 @@ export default function Home() {
       <Mainbanner />
       <OfferList />
       <InBetweenBanner1 />
+      <LatestProducts />
       <Discountitem />
       <InBetweenBanner2 />
       <BrandList />
