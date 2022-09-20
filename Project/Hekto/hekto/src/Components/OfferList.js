@@ -1,171 +1,123 @@
-import truck from "./Images/truck.png"
-import tf from "./Images/tf.png"
-import bb from "./Images/bb.png"
-import tfs from "./Images/tfs.png"
+import truck from "./Images/Offerlist-truck.png";
+import tf from "./Images/Offerlist-tf.png";
+import bb from "./Images/Offerlist-bb.png";
+import tfs from "./Images/Offerlist-tfs.png";
 
-import './OfferList.css';
+import "./Offerlist.css";
 
-function Orderlist() {
+function Offerlist() {
   return (
-    <div className="Orderlist_outercover">
-         
-      <div className='outerlist-l1'>
-      
-        <label> What Shopex Offers!</label>
-      </div>
 
+<div className="offerlist-WhatShopexOffers">
 
-      <div className='outerlist-img-cover'>
-        
-
-        
-  
-      
-
-      
-   
-
-
-<div className="outerlist-hghhfgfgfhgf">
-  
-<div className="orderlisttttt">
-
-<div className='ohyfffkgfkcgt-img-truck'>
-        
-        <img src={truck}/>
-  
-        </div>
-  
-  <div className="oc_img-lbl">
-  <label className="orderlist-img-hndgg">24/7 Support</label>
-  <div className="orderlist-under-lbl-img">
-  <label className="orderlist-under-lbl-img111">Lorem ipsum dolor sit amet</label>
-  <label className="orderlist-under-lbl-img111">consectetur adipiscing elit</label>
-  <label className="orderlist-under-lbl-img111">massa purus gravida</label>
+  <div className="uudugdsiufd">
+  {/* <label>What Shopex Offers!</label> */}
   </div>
-  </div>
-
-  </div>
-  </div>
-
-<div className="outerlist-hghhfgfgfhgf">
-
-  <div className="orderlisttttt">
-
-<div className='ohyfffkgfkcgt-img-truck'>
-        
-        <img src={tf}/>
-  
-        </div>
-  
-  <div className="oc_img-lbl">
-  <label className="orderlist-img-hndgg">24/7 Support</label>
-  <div className="orderlist-under-lbl-img">
-  <label className="orderlist-under-lbl-img111">Lorem ipsum dolor sit amet</label>
-  <label className="orderlist-under-lbl-img111">consectetur adipiscing elit</label>
-  <label className="orderlist-under-lbl-img111">massa purus gravida</label>
-  </div>
-  </div>
-
-  </div>
-  </div>
-
-
-  <div className="outerlist-hghhfgfgfhgf">
-
-  <div className="orderlisttttt">
-
-<div className='ohyfffkgfkcgt-img-truck'>
-        
-        <img src={bb}/>
-  
-        </div>
-  
-  <div className="oc_img-lbl">
-  <label className="orderlist-img-hndgg">24/7 Support</label>
-  <div className="orderlist-under-lbl-img">
-  <label className="orderlist-under-lbl-img111">Lorem ipsum dolor sit amet</label>
-  <label className="orderlist-under-lbl-img111">consectetur adipiscing elit</label>
-  <label className="orderlist-under-lbl-img111">massa purus gravida</label>
-  </div>
-  </div>
-
-  </div>
-  </div>
-
-
-
-<div className="outerlist-hghhfgfgfhgf">
-  <div className="orderlisttttt">
-
-<div className='ohyfffkgfkcgt-img-truck'>
-        
-        <img src={tfs}/>
-  
-        </div>
-  
-  <div className="oc_img-lbl">
-  <label className="orderlist-img-hndgg">24/7 Support</label>
-  <div className="orderlist-under-lbl-img">
-  <label className="orderlist-under-lbl-img111">Lorem ipsum dolor sit amet</label>
-  <label className="orderlist-under-lbl-img111">consectetur adipiscing elit</label>
-  <label className="orderlist-under-lbl-img111">massa purus gravida</label>
-  </div>
-  </div>
-
-  </div>
-
-  </div>
-
-
-
-  
-
-
-  
-
-
-
-
-
  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div className="Offerlist_outercover">
+    
+      <div className="Offerlist-l1">
+        {/* <label> What Shopex Offers!</label> */}
       </div>
 
+      <div className="Offerlist-img-cover">
+        <div className="Offerlist-hghhfgfgfhgf">
+          <div className="Offerlist-orderlisttttt">
+            <div className="Offerlist-ohyfffkgfkcgt-img-truck">
+              <img src={truck} />
+            </div>
 
+            <div className="Offerlist-oc_img-lbl">
+              <label className="Offerlist-img-hndgg">24/7 Support</label>
+              <div className="Offerlist-under-lbl-img">
+                <label className="Offerlist-under-lbl-img111">
+                  Lorem ipsum dolor sit amet
+                </label>
+                <label className="Offerlist-under-lbl-img111">
+                  consectetur adipiscing elit
+                </label>
+                <label className="Offerlist-under-lbl-img111">
+                  massa purus gravida
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    
+        <div className="Offerlist-hghhfgfgfhgf">
+          <div className="Offerlist-orderlisttttt">
+            <div className="Offerlist-ohyfffkgfkcgt-img-truck">
+              <img src={tf} />
+            </div>
 
+            <div className="Offerlist-oc_img-lbl">
+              <label className="Offerlist-img-hndgg">24/7 Support</label>
+              <div className="Offerlist-under-lbl-img">
+                <label className="Offerlist-under-lbl-img111">
+                  Lorem ipsum dolor sit amet
+                </label>
+                <label className="Offerlist-under-lbl-img111">
+                  consectetur adipiscing elit
+                </label>
+                <label className="Offerlist-under-lbl-img111">
+                  massa purus gravida
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div className="Offerlist-hghhfgfgfhgf">
+          <div className="Offerlist-orderlisttttt">
+            <div className="Offerlist-ohyfffkgfkcgt-img-truck">
+              <img src={bb} />
+            </div>
 
+            <div className="Offerlist-oc_img-lbl">
+              <label className="Offerlist-img-hndgg">24/7 Support</label>
+              <div className="Offerlist-under-lbl-img">
+                <label className="Offerlist-under-lbl-img111">
+                  Lorem ipsum dolor sit amet
+                </label>
+                <label className="Offerlist-under-lbl-img111">
+                  consectetur adipiscing elit
+                </label>
+                <label className="Offerlist-under-lbl-img111">
+                  massa purus gravida
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div className="Offerlist-hghhfgfgfhgf">
+          <div className="Offerlist-orderlisttttt">
+            <div className="Offerlist-ohyfffkgfkcgt-img-truck">
+              <img src={tfs} />
+            </div>
 
-
-
-
-
-
-
-
-
-
-
-
+            <div className="Offerlist-oc_img-lbl">
+              <label className="Offerlist-img-hndgg">24/7 Support</label>
+              <div className="Offerlist-under-lbl-img">
+                <label className="Offerlist-under-lbl-img111">
+                  Lorem ipsum dolor sit amet
+                </label>
+                <label className="Offerlist-under-lbl-img111">
+                  consectetur adipiscing elit
+                </label>
+                <label className="Offerlist-under-lbl-img111">
+                  massa purus gravida
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    </div>
+
   );
 }
 
-export default Orderlist;
+export default Offerlist;

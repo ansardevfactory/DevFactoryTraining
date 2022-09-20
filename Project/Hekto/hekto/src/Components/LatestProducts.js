@@ -1,227 +1,215 @@
 import "./LatestProducts.css";
-import latestproducts_chair1 from "./Images/latestproducts_chair1.png";
-import image15 from "./Images/latestproducts_image15.png";
-import image1168 from "./Images/latestproducts_image1168.png";
-import image23 from "./Images/latestproducts_image23.png";
-import image32 from "./Images/latestproducts_image32.png";
-import image3 from "./Images/latestproducts_image3.png";
-import Group27 from "./Images/latestproducts_Group27.png";
-import Groupcart2 from "./Images/latestproducts_Groupcart2.png";
-import Vector from "./Images/latestproducts_Vector.png";
-import uil_search_plus from "./Images/latestproducts_uil_search_plus.png";
+import LatestProducts_chair1 from './Images/LatestProducts_chair1.png'
+import LatestProducts_chair2 from './Images/LatestProducts_chair2.png'
+import LatestProducts_chair3 from './Images/LatestProducts_chair3.png'
+import LatestProducts_chair4 from './Images/LatestProducts_chair4.png'
+import LatestProducts_chair5 from './Images/LatestProducts_chair5.png'
+import LatestProducts_chair6 from './Images/LatestProducts_chair6.png'
+import LatestProducts_icons1 from './Images/LatestProducts_icons1.png'
+import LatestProducts_icons2 from './Images/LatestProducts_icons2.png';
+import LatestProducts_icons3 from './Images/LatestProducts_icons3.png'
+import LatestProducts_icons4 from './Images/LatestProducts_icons4.png'
 function LatestProducts() {
-  return (
-    <>
-      <div className="LatestProducts_outer">
-        <div className="LatestProducts_header">
-          <label>Leatest Products</label>
+    return (
+     <> 
+        <div className="LatestProducts_outer">
+            <div className="LatestProducts_header">
+                <label>Leatest Products</label>
+            </div>
+            <div className="LatestProducts_menu">
+
+                <label className="LatestProducts_menu_col">New Arrival</label>
+                <label className="LatestProducts_menu_col">Best Seller</label>
+                <label className="LatestProducts_menu_col">Featured</label>
+                <label className="LatestProducts_menu_col">Special Offer</label>
+
+            </div>
+            {/* ----------------------------container--outer---------------------- */}
+            <div className="LatestProducts_outerimage_container">
+                {/* -------------  row1---outer--chairimage1----------------------------- */}
+                <div className="LatestProducts_inner_outerimage1_container1_row1">
+                    <div className="LatestProducts_inner_inner_imagefull">
+                        <div className="LatestProducts_inner_top_image_row1">
+                            <div className="LatestProducts_icons_row1_col1">
+                                <div className="LatestProducts_icon_imgsale_col1_row1">
+                                    <img src={LatestProducts_icons1}></img>
+
+                                </div>
+                                <div className="LatestProducts_icons_col1_row2">
+                                    <div className="LatestProducts_imageicons1"><img src={LatestProducts_icons2}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons3}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons4}></img></div>
+                                </div>
+                            </div>
+                            <div className="LatestProducts_imgchair_col2" >
+                                <img src={LatestProducts_chair1}></img>
+                            </div>
+                        </div>
+                        <div className="LatestProducts_bottom_imgchair_text_row2">
+                            <div className="LatestProducts_bottom_imgchair_lefttext_row2">
+                                <label>Comfort Handy Craft</label>
+                            </div>
+                            <div className="LatestProducts_bottom_imgchair_righttext_row2">
+                                <label>$42.00</label>
+                                <span>$65.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    {/* -------------- */}
+                    <div className="LatestProducts_inner_inner_imagefull">
+                        <div className="LatestProducts_inner_top_image_row1">
+                            <div className="LatestProducts_icons_row1_col1">
+                                <div className="LatestProducts_icon_imgsale_col1_row1">
+                                    <img src={LatestProducts_icons1}></img>
+
+                                </div>
+                                <div className="LatestProducts_icons_col1_row2">
+                                    <div className="LatestProducts_imageicons1"><img src={LatestProducts_icons2}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons3}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons4}></img></div>
+                                </div>
+                            </div>
+                            <div className="LatestProducts_imgchair_col2" >
+                                <img src={LatestProducts_chair2}></img>
+                            </div>
+                        </div>
+                        <div className="LatestProducts_bottom_imgchair_text_row2">
+                            <div className="LatestProducts_bottom_imgchair_lefttext_row2">
+                                <label>Comfort Handy Craft</label>
+                            </div>
+                            <div className="LatestProducts_bottom_imgchair_righttext_row2">
+                                <label>$42.00</label>
+                                <span>$65.00</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    {/* ---------- */}
+                    <div className="LatestProducts_inner_inner_imagefull">
+                        <div className="LatestProducts_inner_top_image_row1">
+                            <div className="LatestProducts_icons_row1_col1">
+                                <div className="LatestProducts_icon_imgsale_col1_row1">
+                                    <img src={LatestProducts_icons1}></img>
+
+                                </div>
+                                <div className="LatestProducts_icons_col1_row2">
+                                    <div className="LatestProducts_imageicons1"><img src={LatestProducts_icons2}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons3}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons4}></img></div>
+                                </div>
+                            </div>
+                            <div className="LatestProducts_imgchair_col2" >
+                                <img src={LatestProducts_chair3}></img>
+                            </div>
+                        </div>
+                        <div className="LatestProducts_bottom_imgchair_text_row2">
+                            <div className="LatestProducts_bottom_imgchair_lefttext_row2">
+                                <label>Comfort Handy Craft</label>
+                            </div>
+                            <div className="LatestProducts_bottom_imgchair_righttext_row2">
+                                <label>$42.00</label>
+                                <span>$65.00</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    {/* ------ */}
+                </div>
+                {/* --------------------row2---outer---chairimage2--------------- */}
+                <div className="LatestProducts_inner_outerimage2_container2_row2">
+
+                    <div className="LatestProducts_inner_inner_imagefull">
+                        <div className="LatestProducts_inner_top_image_row1">
+                            <div className="LatestProducts_icons_row1_col1">
+                                <div className="LatestProducts_icon_imgsale_col1_row1">
+                                    <img src={LatestProducts_icons1}></img>
+
+                                </div>
+                                <div className="LatestProducts_icons_col1_row2">
+                                    <div className="LatestProducts_imageicons1"><img src={LatestProducts_icons2}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons3}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons4}></img></div>
+                                </div>
+                            </div>
+                            <div className="LatestProducts_imgchair_col2" >
+                                <img src={LatestProducts_chair4}></img>
+                            </div>
+                        </div>
+                        <div className="LatestProducts_bottom_imgchair_text_row2">
+                            <div className="LatestProducts_bottom_imgchair_lefttext_row2">
+                                <label>Comfort Handy Craft</label>
+                            </div>
+                            <div className="LatestProducts_bottom_imgchair_righttext_row2">
+                                <label>$42.00</label>
+                                <span>$65.00</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    {/* --------- */}
+                    <div className="LatestProducts_inner_inner_imagefull">
+                        <div className="LatestProducts_inner_top_image_row1">
+                            <div className="LatestProducts_icons_row1_col1">
+                                <div className="LatestProducts_icon_imgsale_col1_row1">
+                                    <img src={LatestProducts_icons1}></img>
+
+                                </div>
+                                <div className="LatestProducts_icons_col1_row2">
+                                    <div className="LatestProducts_imageicons1"><img src={LatestProducts_icons2}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons3}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons4}></img></div>
+                                </div>
+                            </div>
+                            <div className="LatestProducts_imgchair_col2" >
+                                <img src={LatestProducts_chair5}></img>
+                            </div>
+                        </div>
+                        <div className="LatestProducts_bottom_imgchair_text_row2">
+                            <div className="LatestProducts_bottom_imgchair_lefttext_row2">
+                                <label>Comfort Handy Craft</label>
+                            </div>
+                            <div className="LatestProducts_bottom_imgchair_righttext_row2">
+                                <label>$42.00</label>
+                                <span>$65.00</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    {/* ---------- */}
+                    <div className="LatestProducts_inner_inner_imagefull">
+                        <div className="LatestProducts_inner_top_image_row1">
+                            <div className="LatestProducts_icons_row1_col1">
+                                <div className="LatestProducts_icon_imgsale_col1_row1">
+                                    <img src={LatestProducts_icons1}></img>
+
+                                </div>
+                                <div className="LatestProducts_icons_col1_row2">
+                                    <div className="LatestProducts_imageicons1"><img src={LatestProducts_icons2}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons3}></img></div>
+                                    <div className="LatestProducts_imageicons2"><img src={LatestProducts_icons4}></img></div>
+                                </div>
+                            </div>
+                            <div className="LatestProducts_imgchair_col2" >
+                                <img src={LatestProducts_chair6}></img>
+                            </div>
+                        </div>
+                        <div className="LatestProducts_bottom_imgchair_text_row2">
+                            <div className="LatestProducts_bottom_imgchair_lefttext_row2">
+                                <label>Comfort Handy Craft</label>
+                            </div>
+                            <div className="LatestProducts_bottom_imgchair_righttext_row2">
+                                <label>$42.00</label>
+                                <span>$65.00</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    {/* ------------- */}
+                </div>
+            </div>
         </div>
-        <div className="LatestProducts_secondmenu">
-          <label className="LatestProducts_secondmenu_col">New Arrival</label>
-          <label className="LatestProducts_secondmenu_col">Best Seller</label>
-          <label className="LatestProducts_secondmenu_col">Featured</label>
-          <label className="LatestProducts_secondmenu_col">Special Offer</label>
-        </div>
-        <div className="LatestProducts_outerimage">
-          <div className="LatestProducts_inneroutimage1">
-            <div className="LatestProducts_inninnerimage">
-              <div className="LatestProducts_inninnerimage_row">
-                <div className="LatestProducts_imagecol1">
-                  <div className="LatestProducts_imagecol1row1">
-                    <img src={Group27}></img>
-                  </div>
-                  <div className="LatestProducts_imagecol1row2">
-                    <div className="LatestProducts_imageicons1">
-                      <img src={Groupcart2}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={Vector}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={uil_search_plus}></img>
-                    </div>
-                  </div>
-                </div>
-                <div className="LatestProducts_imagecol2">
-                  <img src={latestproducts_chair1}></img>
-                </div>
-              </div>
-              <div className="LatestProducts_bottomimagecol">
-                <div className="LatestProducts_botlftimagecol">
-                  <label>Comfort Handy Craft</label>
-                </div>
-                <div className="LatestProducts_botrgtimagecol">
-                  <label>$42.00</label>
-                  <span>$65.00</span>
-                </div>
-              </div>
-            </div>
-            <div className="LatestProducts_inninnerimage">
-              <div className="LatestProducts_inninnerimage_row">
-                <div className="LatestProducts_imagecol1">
-                  <div className="LatestProducts_imagecol1row1">
-                    <img src={Group27}></img>
-                  </div>
-                  <div className="LatestProducts_imagecol1row2">
-                    <div className="LatestProducts_imageicons1">
-                      <img src={Groupcart2}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={Vector}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={uil_search_plus}></img>
-                    </div>
-                  </div>
-                </div>
-                <div className="LatestProducts_imagecol2">
-                  <img src={image15}></img>
-                </div>
-              </div>
-              <div className="LatestProducts_bottomimagecol">
-                <div className="LatestProducts_botlftimagecol">
-                  <label>Comfort Handy Craft</label>
-                </div>
-                <div className="LatestProducts_botrgtimagecol">
-                  <label>$42.00</label>
-                  <span>$65.00</span>
-                </div>
-              </div>
-            </div>
-            <div className="LatestProducts_inninnerimage">
-              <div className="LatestProducts_inninnerimage_row">
-                <div className="LatestProducts_imagecol1">
-                  <div className="LatestProducts_imagecol1row1">
-                    <img src={Group27}></img>
-                  </div>
-                  <div className="LatestProducts_imagecol1row2">
-                    <div className="LatestProducts_imageicons1">
-                      <img src={Groupcart2}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={Vector}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={uil_search_plus}></img>
-                    </div>
-                  </div>
-                </div>
-                <div className="LatestProducts_imagecol2">
-                  <img src={image1168}></img>
-                </div>
-              </div>
-              <div className="LatestProducts_bottomimagecol">
-                <div className="LatestProducts_botlftimagecol">
-                  <label>Comfort Handy Craft</label>
-                </div>
-                <div className="LatestProducts_botrgtimagecol">
-                  <label>$42.00</label>
-                  <span>$65.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="LatestProducts_inneroutimage2">
-            <div className="LatestProducts_inninnerimage">
-              <div className="LatestProducts_inninnerimage_row">
-                <div className="LatestProducts_imagecol1">
-                  <div className="LatestProducts_imagecol1row1">
-                    <img src={Group27}></img>
-                  </div>
-                  <div className="LatestProducts_imagecol1row2">
-                    <div className="LatestProducts_imageicons1">
-                      <img src={Groupcart2}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={Vector}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={uil_search_plus}></img>
-                    </div>
-                  </div>
-                </div>
-                <div className="LatestProducts_imagecol">
-                  <img src={image23}></img>
-                </div>
-              </div>
-              <div className="LatestProducts_bottomimagecol">
-                <div className="LatestProducts_botlftimagecol">
-                  <label>Comfort Handy Craft</label>
-                </div>
-                <div className="LatestProducts_botrgtimagecol">
-                  <label>$42.00</label>
-                  <span>$65.00</span>
-                </div>
-              </div>
-            </div>
-            <div className="LatestProducts_inninnerimage">
-              <div className="LatestProducts_inninnerimage_row">
-                <div className="LatestProducts_imagecol1">
-                  <div className="LatestProducts_imagecol1row1">
-                    <img src={Group27}></img>
-                  </div>
-                  <div className="LatestProducts_imagecol1row2">
-                    <div className="LatestProducts_imageicons1">
-                      <img src={Groupcart2}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={Vector}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={uil_search_plus}></img>
-                    </div>
-                  </div>
-                </div>
-                <div className="LatestProducts_imagecol2">
-                  <img src={image32}></img>
-                </div>
-              </div>
-              <div className="LatestProducts_bottomimagecol">
-                <div className="LatestProducts_botlftimagecol">
-                  <label>Comfort Handy Craft</label>
-                </div>
-                <div className="LatestProducts_botrgtimagecol">
-                  <label>$42.00</label>
-                  <span>$65.00</span>
-                </div>
-              </div>
-            </div>
-            <div className="LatestProducts_inninnerimage">
-              <div className="LatestProducts_inninnerimage_row">
-                <div className="LatestProducts_imagecol1">
-                  <div className="LatestProducts_imagecol1row1">
-                    <img src={Group27}></img>
-                  </div>
-                  <div className="LatestProducts_imagecol1row2">
-                    <div className="LatestProducts_imageicons1">
-                      <img src={Groupcart2}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={Vector}></img>
-                    </div>
-                    <div className="LatestProducts_imageicons2">
-                      <img src={uil_search_plus}></img>
-                    </div>
-                  </div>
-                </div>
-                <div className="LatestProducts_imagecol2">
-                  <img src={image3}></img>
-                </div>
-              </div>
-              <div className="LatestProducts_bottomimagecol">
-                <div className="LatestProducts_botlftimagecol">
-                  <label>Comfort Handy Craft</label>
-                </div>
-                <div className="LatestProducts_botrgtimagecol">
-                  <label>$42.00</label>
-                  <span>$65.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+    </>     
+    )
 }
 export default LatestProducts;

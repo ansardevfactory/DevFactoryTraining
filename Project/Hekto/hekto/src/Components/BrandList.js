@@ -1,13 +1,14 @@
-import "./BrandList.css";
-import image1174 from "./Images/image1174.png";
+import "./BrandList.css"
+import BrandList_brands from "./Images/BrandList_brands.png"
 
 function BrandList() {
-  return (
-    <>
-      <div className="BrandList_image">
-        <img src={image1174} />
-      </div>
+    return <>
+        <div className="BrandList_image">
+
+            <img src={BrandList_brands} />
+        </div>
+
+
     </>
-  );
 }
 export default BrandList;

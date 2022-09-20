@@ -1,8 +1,8 @@
 import React from "react";
-import "./styles/style.css";
-import fb from "./Images/Group 202.png";
-import cam from "./Images/Group 203.png";
-import twit from "./Images/Group 204.png";
+import "./Footer.css";
+import fb from "./Images/footer_facebook.png";
+import cam from "./Images/footer_camscan.png";
+import twit from "./Images/footer_twitter.png";
 
 export default function App() {
   return (
